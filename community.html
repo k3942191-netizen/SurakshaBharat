@@ -1,64 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraksha Bharat - Community</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/community.css">
-    <script src="js/community.js" defer></script>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="logo">Suraksha Bharat</div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="safety-map.html">Safety Map</a></li>
-                <li><a href="community.html" class="active">Community</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="ai-chatbot.html">AI Assistant</a></li>
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
-        </nav>
-    </header>
+/* Body Background */
+body {
+    background: linear-gradient(135deg, #fce4ec, #e3f2fd); /* Soft pink to light blue */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Community Section -->
-    <section class="community-section">
-        <h1>Suraksha Connect</h1>
-        <p>Report incidents, view local alerts, and support each other safely.</p>
+/* Community Section */
+.community-section {
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
 
-        <button id="reportBtn" class="btn btn-cta">Report Incident</button>
+.community-section h1 {
+    font-size: 40px;
+    color: #6a11cb;
+    margin-bottom: 10px;
+}
 
-        <!-- Report Incident Modal -->
-        <div id="reportModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Report Safety Incident</h2>
-                <form id="incidentForm">
-                    <input type="text" id="city" placeholder="City" required>
-                    <select id="risk" required>
-                        <option value="" disabled selected>Risk Level</option>
-                        <option value="low">Safe</option>
-                        <option value="medium">Caution</option>
-                        <option value="high">Danger</option>
-                    </select>
-                    <textarea id="description" placeholder="Incident Description" required></textarea>
-                    <button type="submit" class="btn btn-sos">Submit Report</button>
-                </form>
-            </div>
-        </div>
+.community-section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #333;
+}
 
-        <!-- Incident Cards -->
-        <div id="incidentList" class="incident-list">
-            <!-- Dynamic incident cards will appear here -->
-        </div>
-    </section>
+#reportBtn {
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 50px;
+    background-color: #2575fc;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Suraksha Bharat. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+#reportBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.modal-content input, 
+.modal-content select, 
+.modal-content textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modal-content button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* Incident Cards */
+.incident-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.incident-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.incident-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.incident-card h3 {
+    color: #e74c3c;
+    margin-bottom: 10px;
+}
+
+.incident-card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.incident-card .upvote {
+    margin-top: 15px;
+    cursor: pointer;
+    color: #2575fc;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.incident-card .upvote:hover {
+    color: #0056b3;
+}
