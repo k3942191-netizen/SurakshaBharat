@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraksha Bharat - Safety Map</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/map.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Suraksha Bharat</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="safety-map.html" class="active">Safety Map</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="ai-chatbot.html">AI Assistant</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h1>Interactive Safety Map</h1>
+        <div class="filters">
+            <label for="riskFilter">Filter by Risk Level:</label>
+            <select id="riskFilter">
+                <option value="all">All</option>
+                <option value="low">Safe (Green)</option>
+                <option value="medium">Caution (Yellow)</option>
+                <option value="high">Danger (Red)</option>
+            </select>
+            <button id="reportBtn" class="btn btn-cta">Report Incident</button>
+        </div>
+        <div id="map"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Suraksha Bharat. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
